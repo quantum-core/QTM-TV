@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Microsoft FrontPage 6.0" name=GENERATOR>
+<META 
+content" 
+name=description>
+<META 
+<LINK href="style.css" 
+type=text/css rel=stylesheet>
+<title></title>
+<base target="_self">
+</HEAD>
+<BODY leftMargin=0 topMargin=0 rightMargin=0 marginheight="0" 
+marginwidth="0">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Charity Bike Ride 23 May 2004</title>
+</head>
+
+
+
+<script>
+// CREDITS:
+// Snowmaker Copyright (c) 2003 Peter Gehrig. All rights reserved.
+// Distributed by http://www.hypergurl.com
+// Permission given to use the script provided that this notice remains as is.
+
+// Set the number of snowflakes (more than 30 - 40 not recommended)
+var snowmax=35
+
+// Set the colors for the snow. Add as many colors as you like
+var snowcolor=new Array("#ffff00","#ffffc0","#ffc040")
+
+// Set the fonts, that create the snowflakes. Add as many fonts as you like
+var snowtype=new Array("Arial Black","Arial Narrow","Times","Comic Sans MS")
+
+// Set the letter that creates your snowflake (recommended:*)
+var snowletter="*"
+
+// Set the speed of sinking (recommended values range from 0.3 to 2)
+var sinkspeed=2
+
+// Set the maximal-size of your snowflaxes
+var snowmaxsize=22
+
+// Set the minimal-size of your snowflaxes
+var snowminsize=8
+
+// Set the snowing-zone
+// Set 1 for all-over-snowing, set 2 for left-side-snowing 
+// Set 3 for center-snowing, set 4 for right-side-snowing
+var snowingzone=3
+
+///////////////////////////////////////////////////////////////////////////
+// CONFIGURATION ENDS HERE
+///////////////////////////////////////////////////////////////////////////
+
+
+// Do not edit below this line
+var snow=new Array()
+var marginbottom
+var marginright
+var timer
+var i_snow=0
+var x_mv=new Array();
+var crds=new Array();
+var lftrght=new Array();
+var browserinfos=navigator.userAgent 
+var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/)
+var ns6=document.getElementById&&!document.all
+var opera=browserinfos.match(/Opera/)  
+var browserok=ie5||ns6||opera
+
+function randommaker(range) {		
+	rand=Math.floor(range*Math.random())
+    return rand
+}
+
+function initsnow() {
+	if (ie5 || opera) {
+		marginbottom = document.body.clientHeight
+		marginright = document.body.clientWidth
+	}
+	else if (ns6) {
+		marginbottom = window.innerHeight
+		marginright = window.innerWidth
+	}
+	var snowsizerange=snowmaxsize-snowminsize
+	for (i=0;i<=snowmax;i++) {
+		crds[i] = 0;                      
+    	lftrght[i] = Math.random()*15;         
+    	x_mv[i] = 0.03 + Math.random()/10;
+		snow[i]=document.getElementById("s"+i)
+		snow[i].style.fontFamily=snowtype[randommaker(snowtype.length)]
+		snow[i].size=randommaker(snowsizerange)+snowminsize
+		snow[i].style.fontSize=snow[i].size
+		snow[i].style.color=snowcolor[randommaker(snowcolor.length)]
+		snow[i].sink=sinkspeed*snow[i].size/5
+		if (snowingzone==1) {snow[i].posx=randommaker(marginright-snow[i].size)}
+		if (snowingzone==2) {snow[i].posx=randommaker(marginright/2-snow[i].size)}
+		if (snowingzone==3) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/4}
+		if (snowingzone==4) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/2}
+		snow[i].posy=randommaker(2*marginbottom-marginbottom-2*snow[i].size)
+		snow[i].style.left=snow[i].posx
+		snow[i].style.top=snow[i].posy
+	}
+	movesnow()
+}
+
+function movesnow() {
+	for (i=0;i<=snowmax;i++) {
+		crds[i] += x_mv[i];
+		snow[i].posy+=snow[i].sink
+		snow[i].style.left=snow[i].posx+lftrght[i]*Math.sin(crds[i]);
+		snow[i].style.top=snow[i].posy
+		
+		if (snow[i].posy>=marginbottom-2*snow[i].size || parseInt(snow[i].style.left)>(marginright-3*lftrght[i])){
+			if (snowingzone==1) {snow[i].posx=randommaker(marginright-snow[i].size)}
+			if (snowingzone==2) {snow[i].posx=randommaker(marginright/2-snow[i].size)}
+			if (snowingzone==3) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/4}
+			if (snowingzone==4) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/2}
+			snow[i].posy=0
+		}
+	}
+	var timer=setTimeout("movesnow()",50)
+}
+
+for (i=0;i<=snowmax;i++) {
+	document.write("<span id='s"+i+"' style='position:absolute;top:-"+snowmaxsize+"'>"+snowletter+"</span>")
+}
+if (browserok) {
+	window.onload=initsnow
+}
+</script>
+
+
+
+
+
+<FORM id=frmHome name=frmHome action="" method=post><INPUT id=F_SUFFIXYES 
+type=hidden value=CHECKED name=F_SUFFIXYES> <INPUT id=F_LEADONLY type=hidden 
+value=CHECKED name=F_LEADONLY> <INPUT id=f_objO type=hidden value=CHECKED 
+name=f_objO> <INPUT id=f_objT type=hidden value=CHECKED name=f_objT> <INPUT 
+id=f_objP type=hidden value=CHECKED name=f_objP> <INPUT id=Query type=hidden 
+name=Query> <INPUT id=F_SRCHTERM type=hidden name=F_SRCHTERM> <INPUT 
+id=txtSearch type=hidden name=txtSearch> 
+
+  <div align="center">
+
+<table border="0" width="705" cellspacing="0" cellpadding="0">
+
+<tr>
+
+    <TD vAlign=top align="center">
+      <p>
+      
+      <p align="center">
+<object width='512' height='301' id='StrobeMediaPlayback' name='StrobeMediaPlayback' type='application/x-shockwave-flash' classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' ><param name='movie' value='swfs/StrobeMediaPlayback.swf' /> <param name='quality' value='high' /> <param name='bgcolor' value='#000000' /> <param name='allowfullscreen' value='true' /> <param name='flashvars' value= '&src=http://www.quantumlondon.tv/vod_2/zakat_QTV.mp4&autoHideControlBar=true&streamType=vod&autoPlay=true&verbose=true'/><embed src='swfs/StrobeMediaPlayback.swf' width='640' height='377' id='StrobeMediaPlayback' quality='high' bgcolor='#000000' name='StrobeMediaPlayback' allowfullscreen='true' pluginspage='http://www.adobe.com/go/getflashplayer' flashvars='&src=http://www.quantumlondon.tv/vod_2/zakat_QTV.mp4&autoHideControlBar=true&streamType=vod&autoPlay=true&verbose=true' type='application/x-shockwave-flash'> </embed></object>
+</p>
+      
+      </TD>
+    <TD width="10" height="274" rowspan="3">
+      <p align="center" style="margin-top: 3">&nbsp;</TD>
+</TR>
+<tr>
+
+    <TD vAlign=top align="center" bordercolor="#6666FF" bgcolor="#EAE8FF">
+      <p align="right">
+      &nbsp;</TD>
+</tr>
+<tr>
+
+    <TD vAlign=top width="695" height="15">
+      <p align="center"><span style="mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><b><font face="Garamond" size="4"><font color="#6666FF">QUANTUM
+      MEDITATION</font><br>
+      </font></b><span style="mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><font face="Garamond" size="3">
+		Once</font></span>
+      <font face="Garamond" size="3">
+      you step into the Quantum Meditation you are no longer alone. There are 
+		thousands to accompany you in your journey towards an enlightened life. 
+		They all aim to build a great humanitarian society. Where every 
+		individual will be identified as a human being, with enlightened soul 
+		and highly developed intelligence, who will prosper naturally as a 
+		consequence of his religious right and whose entire existence will be 
+		dedicated to serve Humanity.</font></span> </TD>
+</tr>
+
+
+
+</TABLE>
+  </div>
+  <!--End of Body Section--><!--Square boxes Section-->
+
+  <table width="100%" height="1">
+
+<tr><td width="100%" bgcolor="#0000FF" height="1">
+
+</td></tr>
+
+</FORM>
+  </table>
+
+</BODY>
+
+
+
+
